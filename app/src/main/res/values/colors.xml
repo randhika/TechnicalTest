@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/kitabisa</color>
+    <color name="colorPrimaryDark">#0089bc</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorBaseGray">#C6C6C6</color>
+    <color name="default_background_light">#EEEEEE</color>
+    <color name="kitabisa">#00aeef</color>
+</resources>

@@ -1,0 +1,114 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.randhika.kitabisa"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    def libs = rootProject.ext.libraries
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Google Play Services
+    implementation libs.playServicesLocation
+
+    // Android support library
+    implementation libs.supportAppCompat
+    implementation libs.supportRecyclerView
+    implementation libs.supportDesign
+    implementation libs.supportCardView
+    implementation libs.constraintLayout
+
+    // Dagger
+    implementation libs.dagger
+    implementation libs.daggerAndroid
+    implementation libs.daggerAndroidSupport
+    kapt libs.daggerCompiler
+    kapt libs.daggerAndroidProcessor
+
+    // Architecture Component Lifecycle
+    implementation libs.archLifecycleRuntime
+    implementation libs.archLifecycleExtensions
+    implementation libs.archLifecycleCommonJava8
+    kapt libs.archLifecycleCompiler
+
+    // DataBinding
+    implementation libs.databindingBaseLibrary
+    implementation libs.databindingLibrary
+    kapt libs.databindingCompiler
+
+    // core libraries
+    implementation libs.gson
+
+    // Retrofit related libraries
+    implementation libs.retrofit
+    implementation libs.retrofitGsonConverter
+    implementation libs.okhttpLogging
+
+    kapt libs.parceler
+    implementation libs.parcelerApi
+    //Location
+    implementation(libs.smartLocation) {
+        transitive = false
+    }
+
+    // JUnit 4 framework
+    testImplementation libs.junit
+
+    // Mockito framework
+    testImplementation libs.powermockCore2
+    testImplementation libs.powermockJunit2
+    testImplementation libs.powermockMockito2
+
+    // Architecture Component Lifecycle
+
+    testImplementation(libs.archCoreTesting, {
+        exclude group: 'com.android.support', module: 'support-compat'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-core-utils'
+        exclude group: 'org.mockito', module: 'mockito-core'
+    })
+
+    //Location
+    implementation(libs.smartLocation) {
+        transitive = false
+    }
+
+    // Chuck
+    debugImplementation libs.chuck
+    releaseImplementation libs.chuckNoOp
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

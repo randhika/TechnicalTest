@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewModel"
+                type="com.randhika.kitabisa.feature.MainViewModel"/>
+
+    </data>
+
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:background="@color/default_background_light">
+
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/cardview_default_radius"
+                app:cardElevation="@dimen/cardview_default_elevation">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="40dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/TextAppearance.AppCompat.Display2"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/app_name"
+                        android:textColor="@color/kitabisa"
+                        android:textStyle="bold"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_32sdp"
+                        android:text="@string/type"/>
+
+                <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/Base.Widget.AppCompat.Spinner"
+                        android:layout_marginTop="@dimen/_8sdp"/>
+
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/form1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_24sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:hint="@string/value1"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_custom"/>
+
+                <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/form2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:padding="@dimen/_10sdp"
+                        android:hint="@string/value2"
+                        android:inputType="number"
+                        android:background="@drawable/edit_text_custom"/>
+
+                <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/submit"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/output"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/reesult"
+                        style="@style/TextAppearance.AppCompat.Headline"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        tools:text="@string/app_name"
+                        android:textStyle="bold"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+</layout>

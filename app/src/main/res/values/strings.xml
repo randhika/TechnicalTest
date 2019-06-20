@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kitabisa</string>
+    <string name="value1">Input Value X</string>
+    <string name="value2">Input Value Y</string>
+    <string name="type">Type</string>
+    <string name="output">Output</string>
+</resources>
